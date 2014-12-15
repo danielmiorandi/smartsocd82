@@ -1,0 +1,118 @@
+% WP X: "WP name"
+% Deliverable DX.Y: "Name of this deliverable"
+%
+% Editors: Name and Surname of the Editor
+% List of Authors:
+%
+
+\documentclass{SmartReport}
+\usepackage{url}
+
+\begin{document}
+\wpnumber{8} \wptitle{Architecture and Integration}
+\instshort{ShortNameInstitution} \delnumber{8.2} \versionnumber{0.1}
+\contribshort{UH}
+\deltitle{Platform Prototype: Early Results and System Design}
+\delshorttitle{Platform Prototype} 
+\delavail{CO}
+\delstatus{D}	
+\duedate{31/12/2014}
+\deldate{\today}
+\delowner{Iacopo Carreras, Daniele Miorandi}
+\wpleader{Iacopo Carreras, UH}
+\qualityassessor{Luc Moreau, SOTON}
+\smartkeywords{Platform, Prototype, Integration}
+\maketitle
+
+\begin{smartcontributors}
+%%syntax: version number & date & author (institution) & reviewer (individual)\\
+%0.1 & 04/11/2014 & 
+UH & Daniele Miorandi, Iacopo Carreras, Tommaso Schiavinotto \\
+\end{smartcontributors}
+
+%define the abstract
+\begin{smartabstract}
+\input{sections/execsum.tex}
+\end{smartabstract}
+
+
+\section*{List of Acronyms}
+\begin{tabular}{|c|p{3cm}|p{10cm}|}
+\hline 
+\textbf{Acronym} & \textbf{Full Name} & \textbf{Description} \\
+\hline 
+\hline 
+EC & Evaluator Component & System component in charge of evaluating the outcomes of each computation task (Sec.~\ref{sec:evaluator}).\\
+\hline 
+IM & Incentives Manager & System component in charge of managing the implementation of incentive schemes (Sec.~\ref{sec:incentives_manager}).\\  
+\hline 
+KB & Knowledge Base &  System component in charge of storing and managing the knowledge in the platform (Sec.~\ref{sec:knowledge_base}).\\
+\hline
+OC & Orchestration and Coordination &  System component in charge of coordinating the orchestrating the execution of SmartSociety programs (Sec.~\ref{sec:orchestration_coordination}).\\ 
+\hline 
+PDE & Peer Discovery Engine &  System component in handling peers querying and discovery (Sec.~\ref{sec:peer_manager}).\\ 
+\hline  
+PF & Programming Framework &  System component in charge of the interface between the SmartSociety platform and developers (Sec.~\ref{sec:programming_framework}).\\
+\hline 
+PM & Peer Manager &  System component in charge of managing peers  (Sec.~\ref{sec:peer_manager}).\\
+\hline
+TCO & Task Coordination and Orchestration &  System sub-component in charge of coordinating the execution of a single task (Sec.~\ref{sec:orchestration_coordination}).\\
+\hline
+TEM & Task Execution Manager &  System component in charge of managing the execution of a single task by external peers (Sec.~\ref{sec:task_execution_manager}).\\ 
+\hline
+WE & Workflow Engine &  System component in charge of managing the execution of a program workflow (Sec.~\ref{sec:orchestration_coordination}).\\ 
+\hline  
+\end{tabular}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{sec:intro}
+\input{sections/intro.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The SmartSociety Platform Revised Architecture}
+\label{sec:arch}
+\input{sections/architecture.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Interfaces Specifications}
+\label{sec:apis}
+\input{sections/interfaces.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Description of Artifacts}
+\label{sec:sw}
+\input{sections/sw.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion and Furhter Integration Steps}
+\label{sec:conclusions}
+\input{sections/conclusions.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{./IEEEtran}
+\bibliography{BIB/biblio.bib}
+%\clearpage
+%\appendix
+%\section{Details on code}
+%\input{sections/annex1}
+\end{document}
