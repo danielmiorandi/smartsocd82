@@ -3,8 +3,28 @@ In this section we will list the components integrated at the moment and the API
 \subsection{Peer Manager}
 The Peer Manager (PM) API specifications can be found at \url{http://demos.disi.unitn.it:8080/smartsociety/}. The PM is used for:
 \begin{itemize}
-\item[Retrieving peers satisfying some requirements]: This request is made by the Orchestration Manager. Endpoint used:\\
+\item {\bf Retrieving peers satisfying some requirements}: This request is made by the Orchestration Manager. Endpoint used:\\
 	\url{???}
-\item[Creating collective]: This request is made by the Application/Application Runtime at the end of the negotiation. Endpoint used:\\
+\item {\bf Creating collective}: This request is made by the Application/Application Runtime at the end of the negotiation. Endpoint used:\\
 	\url{/peers/collectivePeer} (\textsc{POST})
+\end{itemize}
+
+
+\subsection{Communication Midlleware}
+The SmartCom Communication Middleware APIs specifications can be found at 
+url{https://github.com/tuwiendsg/SmartCom} and are further described in Deliverable D7.1. The Communication Middleware is mainly used for:
+\begin{itemize}
+\item {\bf Passing messages intended for collectives through a variety of communication channels}: This request is made by the application {\it TBC}. Endpoint used: {at.ac.tuwien.dsg.smartcom.Communication}
+\item Do we need the other functionality? I guess not...
+\end{itemize} 
+
+\subsection{Orchestration Manager}
+The Orchestration and Negotiation Manager APIs specification can be found at {https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OCM is mainly used for:
+\begin{itemize}
+\item {\bf Posting a new task request}: In order to post a task request the following endpoint is used:\\
+	\url{/applications/:app/taskRequests} (\textsc{POST})
+\item {\bf Compose collectives adequate for fulfilling a given task:} this is carried out by the composition manager (see D6.2) and is executed every time a task request is posted in the system. Endpoint used:
+  \url{/applications/:app/compositions} (\textsc{POST})
+\item {\bf Negotiate with peers to create an agreed plan:} it negotiates with peers in order to have their explicit agreement for carrying out a given task. It returns a plan. Endpoint used:
+  \url{/applications/:app/negotiations} (\textsc{POST})
 \end{itemize}
