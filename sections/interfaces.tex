@@ -7,19 +7,24 @@ The Peer Manager (PM) API specifications can be found at \url{http://demos.disi.
 	\url{???}
 \item {\bf Creating collective}: This request is made by the Application/Application Runtime at the end of the negotiation. Endpoint used:\\
 	\url{/peers/collectivePeer} (\textsc{POST})
+\item {\bf Retrieving peers in a collective}: This request is made by the smartcom application, so that it will be able to retrieve peer information later. Endpoint used:\\
+	\url{/peers/collectivePeer ???} (\textsc{GET})
+\item {\bf Retrieving peers info}: This request is made by Smartcom application, this is required because Smartcom requires the information about the communication channel to be used. Endpoint used:\\
+	\url{/peers/collectivePeer ???} (\textsc{GET})	
 \end{itemize}
 
 
-\subsection{Communication Midlleware}
+\subsection{Communication Middleware}
 The SmartCom Communication Middleware APIs specifications can be found at 
 url{https://github.com/tuwiendsg/SmartCom} and are further described in Deliverable D7.1. The Communication Middleware is mainly used for:
 \begin{itemize}
-\item {\bf Passing messages intended for collectives through a variety of communication channels}: This request is made by the application {\it TBC}. Endpoint used: {at.ac.tuwien.dsg.smartcom.Communication}
-\item Do we need the other functionality? I guess not...
-\end{itemize} 
+\item {\bf Application to peer communication}: The Smart Society application sends messages to the peers belonging to a collective through Smartcom, that will deliver it using the preferred communication channel declared in the peer profile. Endpoint used: {at.ac.tuwien.dsg.smartcom.Communication}
+\item {\bf Peer to application reply communication}: Peers can reply to messages from the application. The platform provides an endpoint to which the peers can send a reply to a given message. The message is identified by the conversation id, this attribute is also used to know which application
+originally created the message, so that the platform can correctly dispatch it. 
+\end{itemize}
 
 \subsection{Orchestration Manager}
-The Orchestration and Negotiation Manager APIs specification can be found at {https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OCM is mainly used for:
+The Orchestration and Negotiation Manager APIs specification can be found at \url{https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OCM is mainly used for:
 \begin{itemize}
 \item {\bf Posting a new task request}: In order to post a task request the following endpoint is used:\\
 	\url{/applications/:app/taskRequests} (\textsc{POST})
@@ -27,4 +32,5 @@ The Orchestration and Negotiation Manager APIs specification can be found at {ht
   \url{/applications/:app/compositions} (\textsc{POST})
 \item {\bf Negotiate with peers to create an agreed plan:} it negotiates with peers in order to have their explicit agreement for carrying out a given task. It returns a plan. Endpoint used:
   \url{/applications/:app/negotiations} (\textsc{POST})
+  
 \end{itemize}
