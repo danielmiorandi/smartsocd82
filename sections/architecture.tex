@@ -90,15 +90,18 @@ Fig.~\ref{fig:dynamic_view} provides a sample dynamic view of how the various co
 
 \begin{figure}[!hbt]
  \centering
- \includegraphics[width=1\textwidth]{figs/dynamic_view.pdf}
+ \includegraphics[width=1\textwidth]{figs/dynamicViewTemplate}
  \caption{SmartSociety dynamic view.}
  \label{fig:dynamic_view}
 \end{figure}
 
-The sequence diagram can be summarized in the following steps:
+The 'template' sequence diagram can be summarized in the following steps:
 \begin{itemize}
 \item Platform invocation: the starting point is a user application (e.g., a mobile application) which is exploiting the SmartSociety platform for running a human computation task (refer to Sec.~\ref{sec:asksmartsoc} for a more concrete example). The request is directed towards an application deployed in the SmartSociety application container and providing the necessary support for executing the requested task. The invocation will contain all the necessary metadata, including a complete description of the task, according to the APIs offered by the application running in the platform.
-\item Composition request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through the programming abstractions provided by the runtime, which allow to fully characterize the task that needs to be executed.
+\item Task creation request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through the programming abstractions provided by the runtime, which allow to fully characterize the task that needs to be executed. The composition job request is received by the OM. 
+\item Peer search: the OM queries the PM in order to identify suitable peers for carrying out the intended task. The list of identified peers is then returned to the OM.
+\item Negotiation: the OM uses the list of peers provided by the PM to start negotiations with them. It reaches out to them using the functionality provided by the CM. 
+
 
 \end{itemize}
 
