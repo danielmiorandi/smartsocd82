@@ -42,26 +42,23 @@ UH & Daniele Miorandi, Iacopo Carreras, Tommaso Schiavinotto \\
 \textbf{Acronym} & \textbf{Full Name} & \textbf{Description} \\
 \hline 
 \hline 
-EC & Evaluator Component & System component in charge of evaluating the outcomes of each computation task (Sec.~\ref{sec:evaluator}).\\
-\hline 
-IM & Incentives Manager & System component in charge of managing the implementation of incentive schemes (Sec.~\ref{sec:incentives_manager}).\\  
-\hline 
-KB & Knowledge Base &  System component in charge of storing and managing the knowledge in the platform (Sec.~\ref{sec:knowledge_base}).\\
+%EC & Evaluator Component & System component in charge of evaluating the outcomes of each computation task (Sec.~\ref{sec:evaluator}).\\
+%\hline 
+CM & Communication Middleware & System component in charge of managing
+communication channels between the platform and the peers. \\
 \hline
-OC & Orchestration and Coordination &  System component in charge of coordinating the orchestrating the execution of SmartSociety programs (Sec.~\ref{sec:orchestration_coordination}).\\ 
+IM & Incentives Manager & System component in charge of managing the implementation of incentive schemes.\\  
 \hline 
-PDE & Peer Discovery Engine &  System component in handling peers querying and discovery (Sec.~\ref{sec:peer_manager}).\\ 
-\hline  
-PF & Programming Framework &  System component in charge of the interface between the SmartSociety platform and developers (Sec.~\ref{sec:programming_framework}).\\
+KB & Knowledge Base &  System component in charge of storing and managing the knowledge in the platform.\\
+\hline
+OM & Orchestration Manager &  System component in charge of
+orchestrating the lifecycle of tasks on the SmartSociety platform. \\
 \hline 
-PM & Peer Manager &  System component in charge of managing peers  (Sec.~\ref{sec:peer_manager}).\\
+PF & Programming Framework &  System component in charge of exposing
+appropriate primitives and interfaces to application developers.\\
+\hline 
+PM & Peer Manager &  System component in charge of managing peers.\\
 \hline
-TCO & Task Coordination and Orchestration &  System sub-component in charge of coordinating the execution of a single task (Sec.~\ref{sec:orchestration_coordination}).\\
-\hline
-TEM & Task Execution Manager &  System component in charge of managing the execution of a single task by external peers (Sec.~\ref{sec:task_execution_manager}).\\ 
-\hline
-WE & Workflow Engine &  System component in charge of managing the execution of a program workflow (Sec.~\ref{sec:orchestration_coordination}).\\ 
-\hline  
 \end{tabular}
 
 \newpage
@@ -101,7 +98,7 @@ WE & Workflow Engine &  System component in charge of managing the execution of 
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion and Furhter Integration Steps}
+\section{Discussion and Further Integration Steps}
 \label{sec:conclusions}
 \input{sections/conclusions.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

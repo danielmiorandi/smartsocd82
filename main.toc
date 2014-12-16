@@ -2,12 +2,12 @@
 \contentsline {section}{\numberline {2}The SmartSociety Platform Revised Architecture}{9}
 \contentsline {subsection}{\numberline {2.1}Logical View}{9}
 \contentsline {subsection}{\numberline {2.2}Deployment View and Network Diagrams}{11}
-\contentsline {subsection}{\numberline {2.3}Dynamic View}{11}
-\contentsline {subsubsection}{\numberline {2.3.1}Example: SmartShare}{12}
-\contentsline {subsubsection}{\numberline {2.3.2}Example: Ask SmartSociety!}{12}
-\contentsline {section}{\numberline {3}Interfaces Specifications}{13}
-\contentsline {subsection}{\numberline {3.1}Peer Manager}{13}
-\contentsline {subsection}{\numberline {3.2}Communication Midlleware}{13}
-\contentsline {subsection}{\numberline {3.3}Orchestration Manager}{14}
-\contentsline {section}{\numberline {4}Description of Artifacts}{15}
-\contentsline {section}{\numberline {5}Discussion and Furhter Integration Steps}{16}
+\contentsline {subsection}{\numberline {2.3}Dynamic View}{12}
+\contentsline {subsubsection}{\numberline {2.3.1}Example: SmartShare}{14}
+\contentsline {subsection}{\numberline {2.4}Example: Ask SmartSociety}{14}
+\contentsline {section}{\numberline {3}Interfaces Specifications}{16}
+\contentsline {subsection}{\numberline {3.1}Peer Manager}{16}
+\contentsline {subsection}{\numberline {3.2}Communication Midlleware}{16}
+\contentsline {subsection}{\numberline {3.3}Orchestration Manager}{16}
+\contentsline {section}{\numberline {4}Description of Artifacts}{18}
+\contentsline {section}{\numberline {5}Discussion and Further Integration Steps}{19}
