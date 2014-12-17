@@ -1,24 +1,25 @@
 In this section we will list the components integrated in the current
-instance of the SmartSociety platform and the key APIs thereof
+version of the SmartSociety platform and the key APIs thereof
 used for supporting the two scenarios described in the previous
 section.
 
 \subsection{Peer Manager}
 The Peer Manager (PM) API specifications can be found at
-\url{http://demos.disi.unitn.it:8080/smartsociety/} and are further
+\url{http://demos.disi.unitn.it:8080/smartsociety-score-api/} and are further
 described in Deliverable D4.2. The PM is used for:
 \begin{itemize}
 \item {\bf Retrieving peers satisfying some requirements}: This
   request is made by the Orchestration Manager in order to identify
   potential peers composing a suitable collective for carrying out a
   given task. Endpoint used:\\
-	\url{???}
+	\url{/instances/search/} (\textsc{GET})
 \item {\bf Creating collective}: This request is made by the Application/Application Runtime at the end of the negotiation. Endpoint used:\\
-	\url{/peers/collectivePeer} (\textsc{POST})
-\item {\bf Retrieving peers in a collective}: This request is made by the Smartcom, so that it will be able to retrieve peer information later. Endpoint used:\\
-	\url{/peers/collectivePeer ???} (\textsc{GET})
+	\url{/instances/} (\textsc{POST})
+\item {\bf Retrieving peers in a collective}: This request is made by
+  the Smartcom CM, so that it will be able to retrieve peer information later. Endpoint used:\\
+	\url{/instances/search} (\textsc{GET})
 \item {\bf Retrieving peers info}: This request is made by Smartcom, that requires the information about the communication channel to be used. Endpoint used:\\
-	\url{/peers/collectivePeer ???} (\textsc{GET})	
+	\url{/instances/search} (\textsc{GET})	
 \end{itemize}
 
 
@@ -32,7 +33,7 @@ originally created the message, so that the platform can correctly dispatch it.
 \end{itemize}
 
 \subsection{Orchestration Manager}
-The Orchestration Manager APIs specification can be found at \url{https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OCM is mainly used for:
+The Orchestration Manager APIs specification can be found at \url{https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OM is mainly used for:
 \begin{itemize}
 \item {\bf Posting a new task request}: In order to post a task request the following endpoint is used:\\
 	\url{/applications/:app/taskRequests} (\textsc{POST})
@@ -42,5 +43,4 @@ The Orchestration Manager APIs specification can be found at \url{https://bitbuc
   \url{/applications/:app/tasks/:task_id} (\textsc{GET})
 \item {\bf Updating tasks:} The Smart Society application update the task according to whether the peer accepted or rejected it. Endpoint used:
   \url{/applications/:app/negotiations} (\textsc{PUT})
-  
 \end{itemize}
