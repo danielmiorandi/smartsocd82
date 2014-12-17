@@ -8,6 +8,8 @@
 \documentclass{SmartReport}
 \usepackage{url}
 
+\usepackage{subfig}
+
 \begin{document}
 \wpnumber{8} \wptitle{Architecture and Integration}
 \instshort{ShortNameInstitution} \delnumber{8.2} \versionnumber{0.1}
@@ -68,7 +70,7 @@ PM & Peer Manager &  System component in charge of managing peers.\\
 
 \section{Introduction}
 \label{sec:intro}
-\input{sections/intro.tex}
+%\input{sections/intro.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,6 +85,13 @@ PM & Peer Manager &  System component in charge of managing peers.\\
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mapping to the Application Scenarios}
+\label{sec:mapping}
+\input{sections/apps.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interfaces Specifications}
 \label{sec:apis}
 \input{sections/interfaces.tex}
@@ -93,7 +102,7 @@ PM & Peer Manager &  System component in charge of managing peers.\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Platform description}
 \label{sec:sw}
-\input{sections/sw.tex}
+%\input{sections/sw.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
