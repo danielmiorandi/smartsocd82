@@ -18,14 +18,14 @@ The logical view of the SmartSociety platform is presented in Fig.~\ref{fig:logi
 
 \begin{figure}[!hbt]
  \centering
- \includegraphics[width=0.7\textwidth, angle = -90]{figs/logical_view.pdf}
+ \includegraphics[width=0.9\textwidth]{figs/logical_view.pdf}
  \caption{SmartSociety logical view.}
  \label{fig:logical_view}
 \end{figure}
 
 The core components which are part of the revised version of the SmartSociety are the following:
 \begin{itemize}
-\item \textbf{Application Runtime}: it is the component where the applications created by developers are executed. The runtime provides all the necessary programming abstractions for interacting with the various internal components provided by the SmartSociety platform. 
+\item \textbf{Application Runtime}: this is the component where the applications created by developers are executed. The runtime provides all the necessary programming abstractions for interacting with the various internal components provided by the SmartSociety platform. Furthermore, the Application Runtime provides the main endpoint for external applications to interact with the SmartSociety platform: through the APIs exposed by the applications running in the runtime, external applications can deliver computation tasks to the platform, and receive the  outcomes of their execution. 
 
 \item \textbf{Orchestration Manager}: it provides two key functionalities: composition and negotiaton. Composition takes as
 inputs tasks and interacts with the peer manager to find suitable peers for completing the task. The negotiation manager is in charge of handling the negotiation process with peers in order to ensure that the services and resources required to carry out the task are actually present. This includes the initial creation of a \textit{composition} which can fulfill a given computation task, whereas a composition determines (i) the peers which can potentially execute such task, and (ii) the necessary interactions and/or external services which are needed to execute such task. 
@@ -44,14 +44,10 @@ components to find for the most appropriate peers for a given tasks.  Besides in
 \item \textbf{Provenance Store}: it logs actions performed by platform
 components and peers according to the W3C PROV recommendation. In particular, the provenance store is the component responsible for keeping track of how the overall compositions are being created, executed and how the data managed by the platform is being transformed. It will play a fundamental role in the evaluation of peers reputation, as well as in ensuring that the system as a whole enforces the proper privacy constraints imposed by the peers.It further supports an auditing service which is able to reconstruct and visualize provenance trails. 
 
-\item \textbf{Execution Manager}: the execution manager deals with the different interaction patterns that might be required to interact with peers.
-\item {\bf Monitoring and analytics service}: it logs and monitors
-the platform jobs and can be used by platform administrators to
-perform root-cause analysis and to extract analytics on the
-performance of the system. 
+\item {\bf Monitoring and analytics service}: it logs and monitors the platform jobs and can be used by platform administrators to perform root-cause analysis and to extract analytics on the performance of the system. 
 
 \item {\bf Incentives manager}: it provides insight on incentives and
-interventions that can be used to achieve higher quality results.
+interventions that can be used to achieve higher quality results. Incentives can play a twofold role in SmartSociety. Fist, they can be used to stimulate the participation of a peer (or a collective) in the execution of a given task. Second, they can be used to define specific strategies for community engagement. This will play a fundamental role in maintaining the peers community active over time.
 \end{itemize} 	
 
 
@@ -69,14 +65,16 @@ experimentation purposes. This is by no means to be considered the
 only model supported, but it provides an actual example of the
 supported configuration. 
 
-A network diagram is reported in Fig.~\ref{fig:netDiagram}. The end user in this case interacts with a User Application running on her smartphone. The mobile app interacts with the Application residing in the SmartSociety Platform Core Deployment. Some of the components reside on different servers; in this case the PM is hosted by partner DISI and the PS and RM are hosted by partner SOTON. The Core Deployment further manages interactions with peers (through the CM). In this case we have a human peer which interacts through a Peer Mobile Application, a machine peer (Google) and a machine peer (Twitter) which then reaches out to human peers interacting with it through any Twitter client.
-
 \begin{figure}[!hbt]
  \centering
  \includegraphics[width=1\textwidth]{figs/netDiagram}
  \caption{SmartSociety platform: network diagram}
  \label{fig:netDiagram}
 \end{figure}
+
+A network diagram is reported in Fig.~\ref{fig:netDiagram}. The end user in this case interacts with a User Application running on her smartphone. The mobile app interacts with the Application residing in the SmartSociety Platform Core Deployment. Some of the components reside on different servers; in this case the PM is hosted by partner DISI and the PS and RM are hosted by partner SOTON. The Core Deployment further manages interactions with peers (through the CM). In this case we have a human peer which interacts through a Peer Mobile Application, a machine peer (Google) and a machine peer (Twitter) which then reaches out to human peers interacting with it through any Twitter client.
+
+
 
 The corresponding deployment diagram is reported in Fig.~\ref{fig:deployDiagram}. Here it can be seen that the core deployment server hosts four key components, i.e., the incentives manager, the communication middleware, the orchestration manager and the application container (where the application is executed). On the end user smartphone, besides the user application (client) also the client of the context manager is deployed. This interacts with the corresponding server component on DISI server, where the PM is also hosted. The PS and RM are on the SOTON server. A third-party server is used to host both Google and Twitter peer, which then connect to the corresponding web service.
 \begin{figure}[!hbt]
@@ -86,22 +84,25 @@ The corresponding deployment diagram is reported in Fig.~\ref{fig:deployDiagram}
  \label{fig:deployDiagram}
 \end{figure}
 \subsection{Dynamic View}
+
 Fig.~\ref{fig:dynamic_view} provides a sample dynamic view of how the various components of the SmartSociety platform interact with each other, when running an application based on SmartSociety.\footnote{For the sake of clarity, and as these were developed while integrating the first version of the platform, only interactions among the user application, application, orchestration manager, peer manager, communication middleware and human peer are reported.} 
 
 \begin{figure}[!hbt]
  \centering
- \includegraphics[width=1\textwidth]{figs/dynamicViewTemplate}
- \caption{SmartSociety dynamic view.}
+ \includegraphics[width=1\textwidth]{figs/dynamic_view.pdf}
+ \caption{SmartSociety dynamic view .}
  \label{fig:dynamic_view}
 \end{figure}
 
-The 'template' sequence diagram can be summarized in the following steps:
+The sequence diagram can be summarized in the following steps:
 \begin{itemize}
 \item Platform invocation: the starting point is a user application (e.g., a mobile application) which is exploiting the SmartSociety platform for running a human computation task (refer to Sec.~\ref{sec:asksmartsoc} for a more concrete example). The request is directed towards an application deployed in the SmartSociety application container and providing the necessary support for executing the requested task. The invocation will contain all the necessary metadata, including a complete description of the task, according to the APIs offered by the application running in the platform.
-\item Task creation request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through the programming abstractions provided by the runtime, which allow to fully characterize the task that needs to be executed. The composition job request is received by the OM. 
-\item Peer search: the OM queries the PM in order to identify suitable peers for carrying out the intended task. The list of identified peers is then returned to the OM.
-\item Negotiation: the OM uses the list of peers provided by the PM to start negotiations with them. It reaches out to them using the functionality provided by the CM. 
 
+\item Composition request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through the programming abstractions provided by the runtime, which allow to fully characterize the task that needs to be executed. Creating a composition involves querying per Peer Manager for identifying peers capable (individually or all together) to perform the given task. Once the composition is identified, it is returned to the application, together with a pointer to the peers involved in it.
+
+\item  Negotiation: the application then negotiates with peers their participation in a given task. This can also be mediated/facilitated by the Orchestration Manager. Such negotiation occurs for every single peer involved in the identified composition. The negotiation with peers also involves the identification of the channel preferred by the peer to receive a given task (e.g., email, social, mobile app in the case of human peer). In this phase, the SmartComm communication middleware is exploited to facilitate the interaction with peers. At the completion of this phase, the Orchestration is notified about the successful completion of the negotiation.
+
+\item Execution: once the composition has been successfully identified and agreed with peers, the execution of the task can starts. This can be based over multiple steps and is managed by the Application, exploiting the programming framework provided be the application runtime. This phase concludes with the complete execution of the submitted task. Results are then returned to the User application that has initiated the request.
 
 \end{itemize}
 
