@@ -6,7 +6,7 @@ section.
 \subsection{Peer Manager}
 The Peer Manager (PM) API specifications can be found at
 \url{http://demos.disi.unitn.it:8080/smartsociety-score-api/} and are further
-described in Deliverable D4.2. The PM is used for:
+described in Deliverable D4.2~\cite{D4.2}. The PM is used for:
 \begin{itemize}
 \item {\bf Retrieving peers satisfying some requirements}: This
   request is made by the Orchestration Manager in order to identify
@@ -25,7 +25,7 @@ described in Deliverable D4.2. The PM is used for:
 
 \subsection{Communication Middleware}
 The SmartCom Communication Middleware APIs specifications can be found at 
-\url{https://github.com/tuwiendsg/SmartCom} and are further described in Deliverable D7.1. The Communication Middleware is mainly used for:
+\url{https://github.com/tuwiendsg/SmartCom} and are further described in Deliverable D7.1~\cite{D7.1}. The Communication Middleware is mainly used for:
 \begin{itemize}
 \item {\bf Application to peer communication}: The Smart Society application sends messages to the peers belonging to a collective through Smartcom, that will deliver it using the preferred communication channel declared in the peer profile.
 \item {\bf Peer to application reply communication}: Peers can reply to messages from the application. The platform provides an endpoint to which the peers can send a reply to a given message. The message is identified by the conversation id, this attribute is also used to know which application.
@@ -33,7 +33,7 @@ originally created the message, so that the platform can correctly dispatch it.
 \end{itemize}
 
 \subsection{Orchestration Manager}
-The Orchestration Manager APIs specification can be found at \url{https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2. The OM is mainly used for:
+The Orchestration Manager APIs specification can be found at \url{https://bitbucket.org/rovatsos/smartsociety-internal/wiki/PeerManager/APIBGU} and are further described in Deliverable D6.2~\cite{D6.2}. The OM is mainly used for:
 \begin{itemize}
 \item {\bf Posting a new task request}: In order to post a task request the following endpoint is used:\\
 	\url{/applications/:app/taskRequests} (\textsc{POST})
