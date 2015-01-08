@@ -16,12 +16,14 @@ partners.
 The logical view of the SmartSociety platform is presented in Fig.~\ref{fig:logical_view}. %The Consortium has identified 9 key
 %components which jointly provide the required system-level functionality.
 
-\begin{figure}[!hbt]
+\begin{sidewaysfigure}
+%\begin{figure}[!hbt]
  \centering
- \includegraphics[width=1.1\textwidth]{figs/logical_view.pdf}
+ \includegraphics[width=1\textwidth]{figs/logical_view.pdf}
  \caption{SmartSociety logical view.}
  \label{fig:logical_view}
-\end{figure}
+%\end{figure}
+\end{sidewaysfigure}
 
 The core components which are part of the revised version of the SmartSociety are the following:
 \begin{itemize}
@@ -76,29 +78,33 @@ A network diagram is reported in Fig.~\ref{fig:netDiagram}. The end user in this
 
 
 
-The corresponding deployment diagram is reported in Fig.~\ref{fig:deployDiagram}. Here it can be seen that the core deployment server hosts four key components, i.e., the incentives manager, the communication middleware, the orchestration manager and the application container (where the application is executed). On the end user smartphone, besides the user application (client), also the client of the context manager is deployed. The CM client interacts with the corresponding server-side component deployed on the DISI server, where the PM is also hosted. The PS and RM are on the SOTON server. A third-party server is used to host both Google and Twitter peer, which then connect to the corresponding web service.
-\begin{figure}[!hbt]
+The corresponding deployment diagram is reported in Fig.~\ref{fig:deployDiagram}. Here it can be seen that the core deployment server hosts four key components, i.e., the incentives manager, the communication middleware, the orchestration manager and the application container (where the application is executed). On the end user smartphone, besides the user application (client), the client of the context manager is also  deployed. The CM client interacts with the corresponding server-side component deployed on the DISI server, where the PM is also hosted. The PS and RM are on the SOTON server. A third-party server is used to host both Google and Twitter peer, which then connect to the corresponding web service.
+\begin{sidewaysfigure}
+%\begin{figure}[!hbt]
  \centering
  \includegraphics[width=1\textwidth]{figs/deploymentView}
  \caption{SmartSociety platform: deployment diagram}
  \label{fig:deployDiagram}
-\end{figure}
+%\end{figure}
+\end{sidewaysfigure}
 \subsection{Dynamic View}
 
 Fig.~\ref{fig:dynamic_view} provides a sample dynamic view of how the various components of the SmartSociety platform interact with each other, when running an application based on SmartSociety.\footnote{For the sake of clarity, and as these were developed while integrating the first version of the platform, only interactions among the user application, application, orchestration manager, peer manager, communication middleware and human peer are reported.} 
-
-\begin{figure}[!hbt]
+\begin{sidewaysfigure}
+%\begin{figure}[!hbt]
  \centering
  \includegraphics[width=1\textwidth]{figs/dynamic_view.pdf}
  \caption{SmartSociety dynamic view .}
  \label{fig:dynamic_view}
-\end{figure}
+%\end{figure}
+\end{sidewaysfigure}
 
-The sequence diagram can be summarized in the following steps:
+The sequence diagram can be summarized by the following steps:
 \begin{itemize}
 \item Platform invocation: the starting point is a user application (e.g., a mobile application) which is exploiting the SmartSociety platform for running a human computation task (refer to Sec.~\ref{sec:asksmartsoc} for a more concrete example). The request is directed towards an application deployed in the SmartSociety application container and providing the necessary support for executing the requested task. The invocation will contain all the necessary metadata, including a complete description of the task, according to the APIs offered by the application running in the platform.
 
-\item Composition request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through the programming abstractions provided by the runtime, which allow to fully characterize the task that needs to be executed. Creating a composition involves querying per Peer Manager for identifying peers capable (individually or all together) to perform the given task. Once the composition is identified, it is returned to the application, together with a pointer to the peers involved in it.
+\item Composition request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through %the programming abstractions provided by 
+the runtime, which allows to fully characterize the task that needs to be executed. Creating a composition involves querying per Peer Manager for identifying peers capable (individually or all together) to perform the given task. Once the composition is identified, it is returned to the application, together with a pointer to the peers involved in it.
 
 \item  Negotiation: the application then negotiates with peers their participation in a given task. This can also be mediated/facilitated by the Orchestration Manager. Such negotiation occurs for every single peer involved in the identified composition. The negotiation with peers also involves the identification of the channel preferred by the peer to receive a given task (e.g., email, social, mobile app in the case of human peer). In this phase, the SmartComm communication middleware is exploited to facilitate the interaction with peers. At the completion of this phase, the Orchestration is notified about the successful completion of the negotiation.
 
