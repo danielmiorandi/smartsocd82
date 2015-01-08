@@ -43,11 +43,12 @@ Fig.~\ref{fig:dynamic_ask} illustrates how SmartSociety dynamic view is instanti
 \label{fig:dynamic_ask}
 \end{figure}
 
-Compared to the overall sequence diagram of Fig.~\ref{fig:dynamic_view}, this is a rather simplified use case where the user application consists of a mobile application, where users can post question. The question is dispatched to the corresponding application hosted in the runtime. Such application transforms the question into a computation task to be executed by peers. Such computation task is handled by the Orchestration Manager, which identifies the most suitable composition for completing the task. As an example, if the question regards restaurants, the Orchestration Manager might decide to use machine peers such as, e.g., TripAdvisor or Yelp, in combination with some \textit{local knowledge} provided by human peers living in the region where the request was created. Once the composition has been created, the application recruits the peers for the execution of the task. This could potentially involve the use of incentives in order to motivate peers participation.\\
-After peers have been signed up for the given task, the task execution starts. In this case, the question is send to the peer over the preferred communication channel. In the case of machine peer, this corresponds to the proper APIs, or in the case of human peers cold be a mobile application. In the implemented scenario, we used a Twitter peer which used a hashtag to collect recommendations and a mobile application, through which users could receive questions and provide answers. In this case, the execution Manager is not used, as the application can interact directly with peers, exploiting the SmartCom functionalities.\\
-Once the task is completed, and the answers are collected, the outcome of the computation is delivered to the users issuing the question.
+Compared to the overall sequence diagram of Fig.~\ref{fig:dynamic_view}, this is a rather simplified use case where the user application consists of a mobile application through which users can post question. The question is dispatched to the corresponding application hosted in the runtime. Such application transforms the question into a computational task to be executed by peers. Such computational task is handled by the Orchestration Manager, which identifies the most suitable composition for completing the task by querying the Peer Manager. As an example, if the question regards restaurants, the Orchestration Manager might decide to use machine peers such as, e.g., TripAdvisor or Yelp, in combination with some \textit{local knowledge} provided by human peers living in the region where the request was created. Once the composition has been created, the application recruits the peers for the execution of the task. This could potentially involve the use of incentives in order to motivate peers participation.\\
+After peers have been signed up for the given task, the task execution starts. In this case, the question is sent to the peer over the preferred communication channel. In the case of machine peer, this corresponds to the proper API endpoint, whereas in the case of human peers it could be a mobile application. In the implemented scenario, we used a Twitter peer which used a hashtag to collect recommendations and a mobile application, through which users could receive questions and provide answers. In the current implementation, the Execution Manager functionality is embedded in the application itself, which interacts directly with peers exploiting the SmartCom functionalities.\\
+Once the task is completed, and the answers are collected, the outcome of the computation is delivered to the users originally posting the question.
 
-Fig.~\ref{fig:askpeer} illustrates the US design that has been conducted for the mobile application.
+AskSmartSociety! has been prototyped to be used as both a driver of the integration proces as well as to demonstrate the ability of the platform to support hybridity. Indeed, in the current prototype questions can be seamlessly answered by machine peers (in particular using the Google Search functionality) as well as human peers (using a purposeful developed mobile application). Further, a Twitter peer was developed; this is formally a machine peer, which is used to further distribute the task (in the form of the original question) to human peers, aggregating answers and feeding them back to the application. In Fig.~\ref{fig:askpeer} we display the user interface implemented in the mobile app used for testing and demonstration purposes. 
+% the UX design that has been conducted for the mobile application.
 
 
 \begin{figure}[!bht]
@@ -58,13 +59,13 @@ Fig.~\ref{fig:askpeer} illustrates the US design that has been conducted for the
     \subfloat[Questions list\label{subfig-2:dummy}]{%
       \includegraphics[width=0.2\textwidth]{./figs/ask/ask1.pdf}
     }
-	\subfloat[Question\label{subfig-2:dummy}]{%
+	\subfloat[Question\label{subfig-3:dummy}]{%
       \includegraphics[width=0.2\textwidth]{./figs/ask/ask2.pdf}
     }
-    	\subfloat[Quesitons status\label{subfig-2:dummy}]{%
+    	\subfloat[Question status\label{subfig-4:dummy}]{%
       \includegraphics[width=0.2\textwidth]{./figs/ask/ask3.pdf}
     }
-    	\subfloat[Question details\label{subfig-2:dummy}]{%
+    	\subfloat[Answer details\label{subfig-5:dummy}]{%
       \includegraphics[width=0.2\textwidth]{./figs/ask/ask4.pdf}
     }
     \caption{Ask SmartSociety UX design}
@@ -72,7 +73,7 @@ Fig.~\ref{fig:askpeer} illustrates the US design that has been conducted for the
 \end{figure}
 
 
-\subsubsection{Example: SmartShare}
+\subsection{Example: SmartShare}
 
 TO BE ADDED
 %\begin{figure}
