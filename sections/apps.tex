@@ -47,7 +47,7 @@ Compared to the overall sequence diagram of Fig.~\ref{fig:dynamic_view}, this is
 After peers have been signed up for the given task, the task execution starts. In this case, the question is sent to the peer over the preferred communication channel. In the case of machine peer, this corresponds to the proper API endpoint, whereas in the case of human peers it could be a mobile application. In the implemented scenario, we used a Twitter peer which used a hashtag to collect recommendations and a mobile application, through which users could receive questions and provide answers. In the current implementation, the Execution Manager functionality is embedded in the application itself, which interacts directly with peers exploiting the SmartCom functionalities.\\
 Once the task is completed, and the answers are collected, the outcome of the computation is delivered to the users originally posting the question.
 
-AskSmartSociety! has been prototyped to be used as both a driver of the integration proces as well as to demonstrate the ability of the platform to support hybridity. Indeed, in the current prototype questions can be seamlessly answered by machine peers (in particular using the Google Search functionality) as well as human peers (using a purposeful developed mobile application). Further, a Twitter peer was developed; this is formally a machine peer, which is used to further distribute the task (in the form of the original question) to human peers, aggregating answers and feeding them back to the application. In Fig.~\ref{fig:askpeer} we display the user interface implemented in the mobile app used for testing and demonstration purposes. 
+AskSmartSociety! has been prototyped to be used as both a driver of the integration process as well as to demonstrate the ability of the platform to support hybridity. Indeed, in the current prototype questions can be seamlessly answered by machine peers (in particular using the Google Search functionality) as well as human peers (using a purposeful developed mobile application). Further, a Twitter peer was developed; this is formally a machine peer, which is used to further distribute the task (in the form of the original question) to human peers, aggregating answers and feeding them back to the application. In Fig.~\ref{fig:askpeer} we display the user interface implemented in the mobile app used for testing and demonstration purposes. 
 % the UX design that has been conducted for the mobile application.
 
 
@@ -74,11 +74,17 @@ AskSmartSociety! has been prototyped to be used as both a driver of the integrat
 
 
 \subsection{Example: SmartShare}
+\textit{SmartShare} is a ridesharing application in which travelers share a vehicle for a trip and split travel costs such as gas, toll, and parking fees with others that have similar itineraries and time schedules. 
+Ridesharing systems reflect important features of HDA-CAS. They are open and large-scale, as they typically include thousands of people who can freely register and use the system. They are diverse, supporting participants who are distributed geographically, come from different backgrounds and have different roles (e.g., driver, passenger). Participants have different travel requirements and preferences and access to different types of information. These aspects interact. For example, while large numbers of participants create more opportunities for participants, they also make it more difficult to allocate rides in an efficient, timely way.
+ 
+Given these qualities, SmartShare is a perfect setting within which to engage in SmartSociety research as it allows us to study key research questions addressed by the project.
 
-TO BE ADDED
-%\begin{figure}
-%\centering
-%\includegraphics[width=0.9\textwidth]{./figs/sequenceRide}
-%\caption{Sequence diagram of the SmartShare application.}
-%\label{fig:dynamic_share}
-%\end{figure}
+The SmartShare sequence diagram is depicted in Fig.~\ref{fig:smartshare}. A ride share request is initiated by any user running the SmartShare mobile application. In the request, the user specifies the date, time and searched ride. This information, together with the profile of the requesting user, are used by the SmartShare application to create a composition: peers matching both request constraints and user profile are identified and returned as a possible composition. The application is then going through the recruitment process, in which each peer (person in this case) identified in the composition is contacted over the preferred communication channel and asked to confirm the participation in the ride share. Once the composition has been identified and peers recruited, the task execution can take place. This will happen asynchronously with respect to the initial request, on the date and time for which the ride share was searched. Once the ride share is executed the task is concluded.  
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{./figs/sequenceRide}
+\caption{Sequence diagram of the SmartShare application.}
+\label{fig:dynamic_share}
+\ref{fig:smartshare}
+\end{figure}
