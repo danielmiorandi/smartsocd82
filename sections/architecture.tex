@@ -86,8 +86,8 @@ The corresponding deployment diagram is reported in Fig.~\ref{fig:deployDiagram}
  \label{fig:deployDiagram}
 %\end{figure}
 \end{sidewaysfigure}
-\subsection{Dynamic View}
 
+\subsection{Dynamic View}
 Fig.~\ref{fig:dynamic_view} provides a sample dynamic view of how the various components of the SmartSociety platform interact with each other, when running an application based on SmartSociety.\footnote{For the sake of clarity, and as these were developed while integrating the first version of the platform, only interactions among the user application, application, orchestration manager, peer manager, communication middleware and human peer are reported.} 
 \begin{sidewaysfigure}
 %\begin{figure}[!hbt]
@@ -100,14 +100,14 @@ Fig.~\ref{fig:dynamic_view} provides a sample dynamic view of how the various co
 
 The sequence diagram can be summarized by the following steps:
 \begin{itemize}
-\item Platform invocation: the starting point is a user application (e.g., a mobile application) which is exploiting the SmartSociety platform for running a human computation task (refer to Sec.~\ref{sec:asksmartsoc} for a more concrete example). The request is directed towards an application deployed in the SmartSociety application container and providing the necessary support for executing the requested task. The invocation will contain all the necessary metadata, including a complete description of the task, according to the APIs offered by the application running in the platform.
+\item Platform invocation (step 1): the starting point is a user application (e.g., a mobile application) which is exploiting the SmartSociety platform for running a human computation task (refer to Sec.~\ref{sec:asksmartsoc} for a more concrete example). The request is directed towards an application deployed in the SmartSociety application container and providing the necessary support for executing the requested task. The invocation will contain all the necessary metadata, including a complete description of the task, according to the APIs offered by the application running in the platform.
 
-\item Composition request: the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through %the programming abstractions provided by 
+\item Composition request (steps 2-6): the application, after receiving the request from the user application, converts it into a \textit{composition job request}. A composition is the request to create a composition of peers/collectives capable of executing the task. The composition job request happens through %the programming abstractions provided by 
 the runtime, which allows to fully characterize the task that needs to be executed. Creating a composition involves querying the Peer Manager for identifying peers capable (individually or all together) to perform the given task\footnote{Note that also the Reputation Manager can be queried during this process. This is not reported in the diagram for the sake of simplicity, and as it reflects the current integrated components.}. Once the composition is identified, it is returned to the application, together with a pointer to the peers involved in it.
 
-\item  Negotiation: the application then negotiates with peers their participation in a given task. This can also be mediated/facilitated by the Orchestration Manager. Such negotiation occurs for every single peer involved in the identified composition. The negotiation with peers also involves the identification of the channel preferred by the peer to receive a given task (e.g., email, social, mobile app in the case of human peer). In this phase, the SmartComm communication middleware is exploited to facilitate the interaction with peers. At the completion of this phase, the Orchestration is notified about the successful completion of the negotiation.
+\item  Negotiation (steps 7-14): the application then negotiates with peers their participation in a given task. This can also be mediated/facilitated by the Orchestration Manager. Such negotiation occurs for every single peer involved in the identified composition. The negotiation with peers also involves the identification of the channel preferred by the peer to receive a given task (e.g., email, social, mobile app in the case of human peer). In this phase, the SmartComm communication middleware is exploited to facilitate the interaction with peers. At the completion of this phase, the Orchestration is notified about the successful completion of the negotiation.
 
-\item Execution: once the composition has been successfully identified and agreed with peers, the execution of the task can starts. This can be based over multiple steps and is managed by the Application, exploiting the programming framework provided be the application runtime. This phase concludes with the complete execution of the submitted task. Results are then returned to the User application that has initiated the request.
+\item Execution (steps 15-20): once the composition has been successfully identified and agreed with peers, the execution of the task can starts. This can be based over multiple steps and is managed by the Application, exploiting the programming framework provided be the application runtime. This phase concludes with the complete execution of the submitted task. Results are then returned to the User application that has initiated the request.
 
 \end{itemize}
 
