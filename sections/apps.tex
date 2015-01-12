@@ -74,17 +74,20 @@ AskSmartSociety! has been prototyped to be used as both a driver of the integrat
 
 
 \subsection{Example: SmartShare}
-\textit{SmartShare} is a ridesharing application in which travelers share a vehicle for a trip and split travel costs such as gas, toll, and parking fees with others that have similar itineraries and time schedules. 
-Ridesharing systems reflect important features of HDA-CAS. They are open and large-scale, as they typically include thousands of people who can freely register and use the system. They are diverse, supporting participants who are distributed geographically, come from different backgrounds and have different roles (e.g., driver, passenger). Participants have different travel requirements and preferences and access to different types of information. These aspects interact. For example, while large numbers of participants create more opportunities for participants, they also make it more difficult to allocate rides in an efficient, timely way.
+\textit{SmartShare} is a ridesharing application in which travellers share a vehicle for a trip and split travel costs such as gas, toll, and parking fees with others that have similar itineraries and time schedules. 
+SmartShare reflects important features of HDA-CAS. First, it is a hybrid system, featuring humans who negotiate and perform physical rides as well as machines (intelligent software agents) that recommend routes, match people and monitor rides. SmartShare supports diversity awareness, in terms of users with different preference and affordances as well as different local cultures and values. SmarthShare supports collectives, in terms of both different types of using forming different communities as well as creating geographical clusters of activity. 
+%They are diverse, supporting participants who are distributed geographically, come from different backgrounds and have different roles (e.g., driver, passenger). Participants have different travel requirements and preferences and access to different types of information. These aspects interact. For example, while large numbers of participants create more opportunities for participants, they also make it more difficult to allocate rides in an efficient, timely way.
  
-Given these qualities, SmartShare is a perfect setting within which to engage in SmartSociety research as it allows us to study key research questions addressed by the project.
+%Given these qualities, SmartShare is a perfect setting within which to engage in SmartSociety research as it allows us to study key research questions addressed by the project.
 
-The SmartShare sequence diagram is depicted in Fig.~\ref{fig:smartshare}. A ride share request is initiated by any user running the SmartShare mobile application. In the request, the user specifies the date, time and searched ride. This information, together with the profile of the requesting user, are used by the SmartShare application to create a composition: peers matching both request constraints and user profile are identified and returned as a possible composition. The application is then going through the recruitment process, in which each peer (person in this case) identified in the composition is contacted over the preferred communication channel and asked to confirm the participation in the ride share. Once the composition has been identified and peers recruited, the task execution can take place. This will happen asynchronously with respect to the initial request, on the date and time for which the ride share was searched. Once the ride share is executed the task is concluded.  
+The SmartShare sequence diagram is depicted in Fig.~\ref{fig:smartshare}. Users can post, by using the appropriate app interface, a ride request or ride offer. This includes information on the date, time and destination, as well as a number of user preferences. This request is taken over by the orchestration manager. Constraints matching takes place within the OM, which creates a (plurality of) composition(s), in terms of peers matching contraints, and therefore constituting a potential ride. In the process of finding viable matches, the OM uses the search functionality exposed by the PM. 
+%This information, together with the profile of the requesting user, are used by the SmartShare application to create a composition: peers matching both request constraints and user profile are identified and returned as a possible composition. 
+The application then goes, using the OM functionality, through the recruitment (negotiation) process, in which each peer identified in the composition is contacted over the preferred communication channel and asked to confirm the participation in the ride share. Once the negotiation is successfully completed, an agreed ride plan is created, and the task execution (i.e., the actual ride) can take place. 
+%This will happen asynchronously with respect to the initial request, on the date and time for which the ride share was searched. Once the ride share is executed the task is concluded.  
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{./figs/sequenceRide}
 \caption{Sequence diagram of the SmartShare application.}
-\label{fig:dynamic_share}
-\ref{fig:smartshare}
+\label{fig:smartshare}
 \end{figure}
